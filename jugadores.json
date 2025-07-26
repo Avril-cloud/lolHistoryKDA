@@ -1,0 +1,17 @@
+[
+    {
+        "nick": "Avril",
+        "elo": "Grandmaster",
+        "historial_partidas": [
+            {
+                "campeon": "Kaisa",
+                "kill": 7,
+                "death": 5,
+                "assist": 1,
+                "farm": 23,
+                "vision": 181,
+                "fecha": "2025-07-25T20:55:14.103259"
+            }
+        ]
+    }
+]
