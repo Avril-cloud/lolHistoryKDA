@@ -1,6 +1,7 @@
-
+from rich.console import Console 
+from rich.table import Table
 from clases.partida import Partida
-
+console = Console()
 
 class Player:
     def __init__(self, nick, elo,):
@@ -10,6 +11,9 @@ class Player:
     
     def agregar_partida(self, partida):
         self.historial_partidas.append(partida)
+    
+    def limpiar_partida(self):
+        self.historial_partidas.clear()
 
     def promedio_kda(self):
         if not self.historial_partidas:
@@ -25,15 +29,33 @@ class Player:
 
     def resumen_historial(self):
         if not self.historial_partidas:
-            return f"{self.nick} no tiene partidas registradas."
-        resumenes = [partida.resumen_partida() for partida in self.historial_partidas]
-        resumen = f"Historial de partidas de {self.nick} (Elo: {self.elo}):\n"
-        resumen += "-" * 60 + "\n"
-        resumen += "\n".join(resumenes) + "\n"
-        resumen += "-" * 60 + "\n"
-        resumen += f"Promedio de KDA: {self.promedio_kda():.2f}"
-        return resumen
+            console.print("Este jugador no tiene partidas registradas.", style="red") 
+            return
+        console.print(f"\n [bold]Historial de {self.nick}(Elo: {self.elo})[/bold]")
 
+        table = Table(show_header=True, header_style="medium_violet_red")
+
+        table.add_column("Fecha")
+        table.add_column("Campeón")
+        table.add_column("Kills")
+        table.add_column("Deaths")
+        table.add_column("Assists")
+        table.add_column("Farm")
+        table.add_column("Visión")
+        table.add_column("KDA")
+
+        for partida in self.historial_partidas:
+            table.add_row(
+                partida.fecha.strftime('%d/%m/%Y'),
+                partida.campeon,
+                str(partida.kill),
+                str(partida.death),
+                str(partida.assist),
+                str(partida.farm),
+                str(partida.vision),
+                f"{partida.calcular_kda():.2f}"
+            )
+        console.print(table)        
     def to_dict(self):
         return {
             "nick": self.nick,
