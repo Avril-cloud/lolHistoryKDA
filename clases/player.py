@@ -2,6 +2,7 @@ from rich.console import Console
 from rich.table import Table
 from clases.partida import Partida
 console = Console()
+from datetime import datetime
 
 class Player:
     def __init__(self, nick, elo,):
@@ -55,7 +56,16 @@ class Player:
                 str(partida.vision),
                 f"{partida.calcular_kda():.2f}"
             )
-        console.print(table)        
+        console.print(table)  
+
+    def partidas_por_fecha(self, fecha_str):
+        try:
+            fecha_deseada = datetime.strptime(fecha_str, "%d/%m/%Y").date()
+        except ValueError:
+            console.print("[bold red]Formato de fecha inválido. Usá dd/mm/yyyy[/bold red]")
+            return []
+        return [p for p in self.historial_partidas if p.fecha.date() == fecha_deseada]
+
     def to_dict(self):
         return {
             "nick": self.nick,

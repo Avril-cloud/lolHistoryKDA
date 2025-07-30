@@ -14,6 +14,8 @@ class Partida:
             return self.kill + self.assist
         return (self.kill + self.assist) / self.death
     
+        
+
 
     def resumen_partida(self):
         return (

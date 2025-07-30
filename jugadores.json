@@ -2,6 +2,34 @@
     {
         "nick": "Avril",
         "elo": "Challenger",
-        "historial_partidas": []
+        "historial_partidas": [
+            {
+                "campeon": "Brand",
+                "kill": 8,
+                "death": 4,
+                "assist": 3,
+                "farm": 184,
+                "vision": 77,
+                "fecha": "2025-07-30T16:53:46.217507"
+            },
+            {
+                "campeon": "Ambessa",
+                "kill": 15,
+                "death": 6,
+                "assist": 20,
+                "farm": 293,
+                "vision": 92,
+                "fecha": "2025-07-30T16:53:53.862310"
+            },
+            {
+                "campeon": "Mordekaiser",
+                "kill": 4,
+                "death": 8,
+                "assist": 15,
+                "farm": 258,
+                "vision": 67,
+                "fecha": "2025-07-30T16:55:02.563064"
+            }
+        ]
     }
 ]
