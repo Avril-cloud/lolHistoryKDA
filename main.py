@@ -10,6 +10,7 @@ from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 from datetime import datetime
 import matplotlib.pyplot as plt
+import pandas as pd
 
 
 console = Console()
@@ -178,6 +179,34 @@ def graficar_kda(nick):
     plt.tight_layout() #ajusta el diseño para que no se superpongan los elementos
     plt.show() #muestra el gráfico
 
+def partidas_a_dataframe(player):
+    """
+    Convierte el historial de partidas de un jugador a un DataFrame de pandas.
+    """
+    data = []
+    for p in player.historial_partidas:
+        data.append({
+            "fecha": p.fecha.strftime("%d/%m/%Y"),
+            "campeon": p.campeon,
+            "kill": p.kill,
+            "death": p.death,
+            "assist": p.assist,
+            "farm": p.farm,
+            "vision": p.vision,
+            "kda": round(p.calcular_kda(), 2)
+        })
+
+    df = pd.DataFrame(data)
+    return df
+
+def ordernar_partidas_por_kda(player): 
+    """
+    Ordena las partidas de un jugador por KDA de mayor a menor.
+    """
+    df = partidas_a_dataframe(player)
+    partidas_ordenadas = df.sort_values(by="kda", ascending=False)
+    return partidas_ordenadas
+
 
 def mostrar_menu():
     opciones = [
@@ -191,6 +220,8 @@ def mostrar_menu():
         "Buscar partidas por fecha",
         "Exportar historial de partidas a Excel",
         "Graficar KDA por partida",
+        "Historíal en pandas",
+        "Ordernar partidas por KDA",
         "Salir del sistema"
     ]
     menu = "\n".join(
@@ -280,6 +311,18 @@ def main():
                 graficar_kda(nick)
 
         elif opcion == 11:
+            nick = buscar_player(players)
+            if nick:
+                df = partidas_a_dataframe(nick)
+                print(df)
+
+        elif opcion == 12:
+            nick = buscar_player(players)
+            if nick:
+                partidas_ordenadas = ordernar_partidas_por_kda(nick)
+                print(partidas_ordenadas.to_string(index=False))
+
+        elif opcion == 13:
             guardar_datos(players, "jugadores.json")
             console.print("Saliendo del sistema.", style=optionStyle)
             break

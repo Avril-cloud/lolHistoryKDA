@@ -1,6 +1,6 @@
 # Entorno virtual
-venv/
-venv312/
+venv*/
+
 
 # Cachés de Python
 __pycache__/
