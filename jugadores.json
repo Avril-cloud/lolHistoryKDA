@@ -29,6 +29,78 @@
                 "farm": 258,
                 "vision": 67,
                 "fecha": "2025-07-30T16:55:02.563064"
+            },
+            {
+                "campeon": "Fiora",
+                "kill": 9,
+                "death": 6,
+                "assist": 13,
+                "farm": 256,
+                "vision": 98,
+                "fecha": "2025-07-31T12:23:45.854541"
+            },
+            {
+                "campeon": "Zyra",
+                "kill": 9,
+                "death": 8,
+                "assist": 14,
+                "farm": 170,
+                "vision": 67,
+                "fecha": "2025-07-31T12:23:50.002043"
+            },
+            {
+                "campeon": "Yorick",
+                "kill": 18,
+                "death": 12,
+                "assist": 7,
+                "farm": 182,
+                "vision": 23,
+                "fecha": "2025-07-31T12:25:20.367500"
+            },
+            {
+                "campeon": "Volibear",
+                "kill": 13,
+                "death": 2,
+                "assist": 8,
+                "farm": 96,
+                "vision": 70,
+                "fecha": "2025-07-31T12:25:26.011685"
+            },
+            {
+                "campeon": "Tryndamere",
+                "kill": 6,
+                "death": 7,
+                "assist": 13,
+                "farm": 138,
+                "vision": 96,
+                "fecha": "2025-07-31T12:25:29.263523"
+            },
+            {
+                "campeon": "Senna",
+                "kill": 20,
+                "death": 8,
+                "assist": 0,
+                "farm": 68,
+                "vision": 49,
+                "fecha": "2025-08-01T00:07:50.253450"
+            },
+            {
+                "campeon": "Veigar",
+                "kill": 2,
+                "death": 9,
+                "assist": 5,
+                "farm": 68,
+                "vision": 23,
+                "fecha": "2025-08-01T00:07:52.629680"
+            },
+            {
+                "campeon": "Sett",
+                "kill": 7,
+                "death": 2,
+                "assist": 16,
+                "farm": 166,
+                "vision": 77,
+                "fecha": "2025-08-01T00:12:32.175511"
             }
         ]
     }
